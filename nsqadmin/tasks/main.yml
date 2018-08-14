@@ -1,0 +1,4 @@
+---
+- name: copy supervisorctl nsq conf
+  copy: src=conf/nsqadmin.conf dest=/etc/supervisor/conf.d/
+

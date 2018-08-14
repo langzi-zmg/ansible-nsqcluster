@@ -1,0 +1,14 @@
+---
+# dddddddhost telegraf agent install
+- hosts: nsqd 
+  become: true
+  roles:
+    - nsqd
+- hosts: nsqlookupd
+  become: true
+  roles:
+    - nsqlooupd
+- hosts: nsqadmin
+  become: true
+  roles: 
+    - nsqadmin

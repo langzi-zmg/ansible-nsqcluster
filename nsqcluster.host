@@ -1,0 +1,12 @@
+[nsqd]
+pushnsq1
+pushnsq2
+pushnsq3
+
+[nsqlookupd]
+pushnsq1
+pushnsq2
+pushnsq3
+
+[nsqadmin]
+pushnsq1

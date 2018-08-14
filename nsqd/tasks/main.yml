@@ -1,0 +1,22 @@
+---
+- name: install supervisor
+  apt:
+    name: supervisor
+    state: present
+  become: true
+
+- name: create path for on-disk queue files
+  shell: sudo mkdir -p /opt/nsq/{bin,conf,data} 
+
+- name: copy nsqd.toml
+  copy: src=conf/nsqd.toml dest=/opt/nsq/conf/
+
+- name: copy bin
+  copy: src={{ item }} dest=/usr/local/bin/
+  with_fileglob:
+   - soft/bin/*
+
+- name: copy supervisorctl nsq conf
+  copy: src=conf/nsqd.conf dest=/etc/supervisor/conf.d
+
+- name: supervisor
